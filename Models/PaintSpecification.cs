@@ -18,9 +18,9 @@ namespace PaintOrderManagement.Models
             SizeInLiters = sizeInLiters;
         }
         // Method to display the paint specification
-        public void DisplaySpecification()
+        public virtual void DisplaySpecification()
         {
-            Console.WriteLine($"Color: {Color}, Size: {SizeInLiters} liters");
+            Console.WriteLine($"-Color: {Color}, Size: {SizeInLiters} liters");
         }
 
     }

@@ -13,14 +13,21 @@ namespace PaintOrderManagement.Models
         private readonly decimal _taxRate;
         private const decimal Discount = 0.05m; // 5% discount
 
+        private static int _nextId = 1;
+
+        public int Id { get;}
         public string Name { get; set; }
+        public string Brand { get; set; }
         public PaintType Type { get; set; }
         public PaintSpecification Specification { get; set; }
         public decimal Price { get; set; }
+        
 
-        public PaintProduct(string name, PaintType type, PaintSpecification specification, decimal price, decimal taxRate = 0.2m)
+        public PaintProduct(string name, string brand, PaintType type, PaintSpecification specification, decimal price, decimal taxRate = 0.2m)
         {
+            Id = _nextId++;
             Name = name;
+            Brand = brand;
             Type = type;
             Specification = specification;
             Price = price;
@@ -31,10 +38,10 @@ namespace PaintOrderManagement.Models
         public decimal GetFinalPrice() => Price * (1 + _taxRate - Discount);
 
         // Method to display product information
-        public void DisplayInfo()
+        public virtual void DisplayInfo()
         {
             Specification.DisplaySpecification();
-            Console.WriteLine($"Name: {Name}, Type: {Type}, Price: {Price:C}, Price (after tax and discount): {GetFinalPrice():C}");
+            Console.WriteLine($"Id: {Id}, Name: {Name}, Type: {Type}, Price: {Price:C}, Price (after tax and discount): {GetFinalPrice():C}");
         }
     }
 }

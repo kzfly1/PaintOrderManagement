@@ -18,10 +18,5 @@ namespace PaintOrderManagement.Utils
         {
             Console.WriteLine(new string(symbol, length));
         }
-        public static void DisplayWithSeparator (PaintProduct product)
-        {
-            product.DisplayInfo();
-            PrintSeparator();
-        }
     }
 }

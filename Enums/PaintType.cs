@@ -11,5 +11,8 @@ namespace PaintOrderManagement.Enums
         BaseCoat,
         Glossy,
         Matte,
+        SemiGloss,
+        Gloss,
+        WhiteOnWhite,
     }
 }
